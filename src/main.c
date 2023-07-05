@@ -6,7 +6,7 @@
 /*   By: sacorder <sacorder@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 15:53:41 by sacorder          #+#    #+#             */
-/*   Updated: 2023/07/06 00:17:51 by sacorder         ###   ########.fr       */
+/*   Updated: 2023/07/06 00:48:59 by sacorder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	ft_space_sign(char c)
 {
 	if (c == ' ' || c == '+' || c == '-' || c == '\v'
-			|| c == '\t' || c == '\r' || c == '\n' || c == '\f')
+		|| c == '\t' || c == '\r' || c == '\n' || c == '\f')
 		return (c);
 	return (0);
 }
@@ -75,14 +75,20 @@ static void	init_stack(t_list *stack, char **argv)
 			current->next = NULL;
 	}
 }
+static void parse_check_list(t_list *list, int argc)
+{
+	(void) argc;
+	if (check_duplicates(list))
+		exit (-1);
+}
 
-void	print_stack(t_list *stack)
+static void	print_stack(t_list *stack)
 {
 	int		*content;
 	t_list	*current;
 
 	current = stack;
-	while(current)
+	while (current)
 	{
 		content = (int *) current->content;
 		ft_printf("Node content: %i\n\n", *content);
@@ -92,8 +98,7 @@ void	print_stack(t_list *stack)
 
 int	main(int argc, char **argv)
 {
-	t_list *a;
-	//t_list *b;
+	t_list	*a;
 
 	check_args(argv, argc);
 	a = malloc(sizeof(t_list));
@@ -101,5 +106,7 @@ int	main(int argc, char **argv)
 		return (-1);
 	init_stack(a, argv);
 	print_stack(a);
+	parse_check_list(a, argc);
+	//sort(a, argc);
 	return (0);
 }

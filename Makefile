@@ -6,7 +6,7 @@
 #    By: sacorder <sacorder@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/30 15:45:24 by sacorder          #+#    #+#              #
-#    Updated: 2023/06/30 15:57:31 by sacorder         ###   ########.fr        #
+#    Updated: 2023/07/06 00:49:29 by sacorder         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ INCLIB = -L libft -lft
 NAME = push_swap
 FLAGS = -Wall -Wextra -Werror
 INCLUDE = inc/push_swap.h
-SRC = src/main.c
+SRC = src/main.c src/utils.c
 OBJ = $(SRC:.c=.o)
 RM=/bin/rm -f
 

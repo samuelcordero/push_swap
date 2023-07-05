@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sacorder <sacorder@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: sacorder <sacorder@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:02:19 by sacorder          #+#    #+#             */
-/*   Updated: 2023/03/16 15:14:05 by sacorder         ###   ########.fr       */
+/*   Updated: 2023/07/06 00:25:58 by sacorder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
 
@@ -81,5 +82,5 @@ char	*get_next_line(int fd);
 
 // PRINTF //
 
-int	ft_printf(char const *str, ...);
+int		ft_printf(char const *str, ...);
 #endif
