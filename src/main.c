@@ -6,7 +6,7 @@
 /*   By: sacorder <sacorder@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 15:53:41 by sacorder          #+#    #+#             */
-/*   Updated: 2023/07/06 00:48:59 by sacorder         ###   ########.fr       */
+/*   Updated: 2023/07/06 16:36:07 by sacorder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,25 +75,12 @@ static void	init_stack(t_list *stack, char **argv)
 			current->next = NULL;
 	}
 }
-static void parse_check_list(t_list *list, int argc)
+
+static t_list	*parse_check_list(t_list *list)
 {
-	(void) argc;
 	if (check_duplicates(list))
 		exit (-1);
-}
-
-static void	print_stack(t_list *stack)
-{
-	int		*content;
-	t_list	*current;
-
-	current = stack;
-	while (current)
-	{
-		content = (int *) current->content;
-		ft_printf("Node content: %i\n\n", *content);
-		current = current->next;
-	}
+	return (reformat_list(list));
 }
 
 int	main(int argc, char **argv)
@@ -106,7 +93,9 @@ int	main(int argc, char **argv)
 		return (-1);
 	init_stack(a, argv);
 	print_stack(a);
-	parse_check_list(a, argc);
+	a = parse_check_list(a);
+	ft_printf("\n\n ---AFTER PARSER--- \n\n");
+	print_stack(a);
 	//sort(a, argc);
 	return (0);
 }
