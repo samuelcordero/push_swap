@@ -6,7 +6,7 @@
 /*   By: sacorder <sacorder@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 00:10:10 by sacorder          #+#    #+#             */
-/*   Updated: 2023/07/06 16:35:53 by sacorder         ###   ########.fr       */
+/*   Updated: 2023/07/08 17:13:38 by sacorder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,6 @@ void	print_stack(t_list *stack)
 		content = (int *) current->content;
 		ft_printf("Node content: %i\n\n", *content);
 		current = current->next;
+		sleep(1);
 	}
 }
