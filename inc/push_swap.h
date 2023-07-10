@@ -6,7 +6,7 @@
 /*   By: sacorder <sacorder@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 15:51:34 by sacorder          #+#    #+#             */
-/*   Updated: 2023/07/08 17:07:06 by sacorder         ###   ########.fr       */
+/*   Updated: 2023/07/11 00:15:05 by sacorder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ void	print_stack(t_list *stack);
 void	sort(t_list *stack_a, int argc);
 
 //move.c
+void	push(t_list **stack_to, t_list **stack_from, char *str);
 void	swap(t_list **stack, char *str);
+void	rotate(t_list **stack, char *str);
+void	rev_rotate(t_list **stack, char *str);
 
 #endif
