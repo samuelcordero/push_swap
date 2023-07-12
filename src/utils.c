@@ -6,7 +6,7 @@
 /*   By: sacorder <sacorder@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 00:10:10 by sacorder          #+#    #+#             */
-/*   Updated: 2023/07/11 00:18:16 by sacorder         ###   ########.fr       */
+/*   Updated: 2023/07/12 17:14:20 by sacorder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	asgn_relative_val(t_list *to_asgn, t_list *list, t_list *current)
 		exit(-1);
 	to_asgn_content = to_asgn->content;
 	current_content = current->content;
-	*to_asgn_content = 1;
+	*to_asgn_content = 0;
 	while (list)
 	{
 		tmp_content = list->content;
