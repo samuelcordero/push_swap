@@ -6,7 +6,7 @@
 /*   By: sacorder <sacorder@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 16:36:41 by sacorder          #+#    #+#             */
-/*   Updated: 2023/07/12 17:53:14 by sacorder         ###   ########.fr       */
+/*   Updated: 2023/07/17 19:03:47 by sacorder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void	radix_sort(t_list *stack_a, t_list *stack_b)
 	while(!is_sorted(stack_a))
 	{
 		first_rotated = NULL;
-		while(first_rotated != stack_a)
+		while(first_rotated != stack_a && !is_sorted(stack_a))
 		{
 			content = stack_a->content;
 			if (!(*content & (1 << loop_ctr)))
