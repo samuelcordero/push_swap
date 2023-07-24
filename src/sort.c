@@ -6,7 +6,7 @@
 /*   By: sacorder <sacorder@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 16:36:41 by sacorder          #+#    #+#             */
-/*   Updated: 2023/07/17 19:03:47 by sacorder         ###   ########.fr       */
+/*   Updated: 2023/07/24 17:00:31 by sacorder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	is_sorted(t_list *stack)
 
 	node = stack;
 	prev_content = node->content;
-	while(node)
+	while (node)
 	{
 		content = node->content;
 		if (*content < *prev_content)
@@ -31,6 +31,45 @@ static int	is_sorted(t_list *stack)
 	return (1);
 }
 
+static void	sort_three(t_list *stack_a, t_list *stack_b)
+{
+	int	*a;
+	int	*b;
+	int	*c;
+
+	a = stack_a->content;
+	b = stack_a->next->content;
+	c = stack_a->next->next->content;
+	(void) stack_b;
+	if (*a > *b && *b < *c && *a < *c)
+		swap(&stack_a, "sa");
+	else if (*a > *b && *b > *c)
+	{
+		swap(&stack_a, "sa");
+		rev_rotate(&stack_a, "rra");
+	}
+	else if (*a > *b && *b < *c && *a > *c)
+		rotate(&stack_a, "ra");
+	else if (*a < *b && *b > *c && *a < *c)
+	{
+		swap(&stack_a, "sa");
+		rotate(&stack_a, "ra");
+	}
+	else if (*a < *b && *b > *c && *a > *c)
+		rev_rotate(&stack_a, "rra");
+}
+
+static void	sort_ltf(t_list *stack_a, t_list *stack_b, int argc)
+{
+	push(&stack_b, &stack_a, "pb");
+	if (argc == 6)
+		push(&stack_b, &stack_a, "pb");
+	sort_three(stack_a, stack_b);
+	push(&stack_a, &stack_b, "pa");
+	rotate(&stack_a, "ra");
+	push(&stack_a, &stack_b, "pa");
+}
+
 static void	radix_sort(t_list *stack_a, t_list *stack_b)
 {
 	int		*content;
@@ -38,10 +77,10 @@ static void	radix_sort(t_list *stack_a, t_list *stack_b)
 	t_list	*first_rotated;
 
 	loop_ctr = 0;
-	while(!is_sorted(stack_a))
+	while (!is_sorted(stack_a))
 	{
 		first_rotated = NULL;
-		while(first_rotated != stack_a && !is_sorted(stack_a))
+		while (first_rotated != stack_a && !is_sorted(stack_a))
 		{
 			content = stack_a->content;
 			if (!(*content & (1 << loop_ctr)))
@@ -61,11 +100,15 @@ static void	radix_sort(t_list *stack_a, t_list *stack_b)
 
 void	sort(t_list *stack_a, int argc)
 {
-	t_list *stack_b;
+	t_list	*stack_b;
 
 	stack_b = NULL;
 	if (argc == 2)
 		return ;
+	else if (argc == 4)
+		sort_three(stack_a, stack_b);
+	else if (argc >= 5 && argc <= 6)
+		sort_ltf(stack_a, stack_b, argc);
 	else
 		radix_sort(stack_a, stack_b);
 }

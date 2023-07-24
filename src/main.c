@@ -6,7 +6,7 @@
 /*   By: sacorder <sacorder@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 15:53:41 by sacorder          #+#    #+#             */
-/*   Updated: 2023/07/12 17:53:38 by sacorder         ###   ########.fr       */
+/*   Updated: 2023/07/24 17:01:16 by sacorder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,10 +92,7 @@ int	main(int argc, char **argv)
 	if (!a)
 		return (-1);
 	init_stack(a, argv);
-/* 	print_stack(a); */
 	a = parse_check_list(a);
-/* 	ft_printf("\n ---AFTER PARSER--- \n\n");
-	print_stack(a); */
 	sort(a, argc);
 	return (0);
 }

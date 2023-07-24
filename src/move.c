@@ -6,7 +6,7 @@
 /*   By: sacorder <sacorder@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 14:16:54 by sacorder          #+#    #+#             */
-/*   Updated: 2023/07/12 12:58:17 by sacorder         ###   ########.fr       */
+/*   Updated: 2023/07/24 17:00:52 by sacorder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void	rotate(t_list **stack, char *str)
 		*stack = second_node;
 		first_node->next = NULL;
 		ft_lstadd_back(stack, first_node);
-		
 	}
 	ft_putendl_fd(str, 1);
 }
