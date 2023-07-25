@@ -6,7 +6,7 @@
 /*   By: sacorder <sacorder@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 16:36:41 by sacorder          #+#    #+#             */
-/*   Updated: 2023/07/25 12:48:51 by sacorder         ###   ########.fr       */
+/*   Updated: 2023/07/25 19:21:42 by sacorder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,31 +61,10 @@ static void	sort_three(t_list **stack_a, t_list **stack_b)
 
 static void	sort_ltf(t_list **stack_a, t_list **stack_b, int argc)
 {
-	int	*a_cont;
-	int	*b_cont;
-
 	push(stack_b, stack_a, "pb\n");
 	if (argc == 6)
 		push(stack_b, stack_a, "pb\n");
 	sort_three(stack_a, stack_b);
-	while (*stack_b)
-	{
-		a_cont = (*stack_a)->content;
-		b_cont = (*stack_b)->content;
-		if (*b_cont + 1 == *a_cont)
-			push(stack_a, stack_b, "pa\n");
-		else if (*b_cont == argc - 2)
-		{
-			push(stack_a, stack_b, "pa\n");
-			rotate(stack_a, "ra\n");
-		}
-		else
-			while (*b_cont > *a_cont)
-			{
-				rotate(stack_a, "ra\n");
-				a_cont = (*stack_a)->content;
-			}
-	}
 }
 
 static void	radix_sort(t_list **stack_a, t_list **stack_b)
@@ -121,7 +100,7 @@ void	sort(t_list **stack_a, int argc)
 	t_list	*stack_b;
 
 	stack_b = NULL;
-	if (argc == 2)
+	if (is_sorted(stack_a))
 		return ;
 	else if (argc == 4)
 		sort_three(stack_a, &stack_b);

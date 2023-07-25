@@ -6,7 +6,7 @@
 #    By: sacorder <sacorder@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/30 15:45:24 by sacorder          #+#    #+#              #
-#    Updated: 2023/07/08 17:07:55 by sacorder         ###   ########.fr        #
+#    Updated: 2023/07/25 17:50:54 by sacorder         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ INCLIB = -L libft -lft
 NAME = push_swap
 FLAGS = -Wall -Wextra -Werror
 INCLUDE = inc/push_swap.h
-SRC = src/main.c src/utils.c src/sort.c src/move.c
+SRC = src/main.c src/utils.c src/sort.c src/move.c src/check_utils.c
 OBJ = $(SRC:.c=.o)
 RM=/bin/rm -f
 
@@ -29,7 +29,7 @@ $(NAME): $(LIB) $(OBJ) $(INCLUDE)
 	$(CC) $(FLAGS) -o $(NAME) $(OBJ) $(INCLIB)
 
 %.o: %.c
-	$(CC) $(FLAGS) -c -o $@ $< $(BONUS)
+	$(CC) $(FLAGS) -c -o $@ $<
 
 clean:
 	@make clean -C ./libft

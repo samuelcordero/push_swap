@@ -6,7 +6,7 @@
 /*   By: sacorder <sacorder@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 15:51:34 by sacorder          #+#    #+#             */
-/*   Updated: 2023/07/25 12:43:05 by sacorder         ###   ########.fr       */
+/*   Updated: 2023/07/25 17:51:54 by sacorder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
+
+//check_utils.c
+
+void	check_args(char **argv, int argc);
 
 //utils.c
 void	ft_clrintlst_content(void *content);
