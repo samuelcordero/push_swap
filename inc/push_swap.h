@@ -6,7 +6,7 @@
 /*   By: sacorder <sacorder@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 15:51:34 by sacorder          #+#    #+#             */
-/*   Updated: 2023/07/11 00:15:05 by sacorder         ###   ########.fr       */
+/*   Updated: 2023/07/25 12:43:05 by sacorder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		check_duplicates(t_list *list);
 void	print_stack(t_list *stack);
 
 //sort.c
-void	sort(t_list *stack_a, int argc);
+void	sort(t_list **stack_a, int argc);
 
 //move.c
 void	push(t_list **stack_to, t_list **stack_from, char *str);

@@ -6,7 +6,7 @@
 /*   By: sacorder <sacorder@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 15:53:41 by sacorder          #+#    #+#             */
-/*   Updated: 2023/07/24 17:01:16 by sacorder         ###   ########.fr       */
+/*   Updated: 2023/07/25 12:50:56 by sacorder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,44 +93,7 @@ int	main(int argc, char **argv)
 		return (-1);
 	init_stack(a, argv);
 	a = parse_check_list(a);
-	sort(a, argc);
+	sort(&a, argc);
+	print_stack(a);
 	return (0);
 }
-
-/* 	print_stack(a);
-	swap(&a, "sa");
-	print_stack(a);
-	rotate(&a, "ra");
-	print_stack(a);
-	rev_rotate(&a, "rra");
-	print_stack(a); 
-	push(&a, &b, "pa");
-	ft_printf("\n\n ---stack a--- \n\n");
-	print_stack(a);
-	ft_printf("\n\n ---stack b--- \n\n");
-	print_stack(b);
-	push(&b, &a, "pb");
-	ft_printf("\n\n ---stack a--- \n\n");
-	print_stack(a);
-	ft_printf("\n\n ---stack b--- \n\n");
-	print_stack(b);
-	push(&b, &a, "pb");
-	ft_printf("\n\n ---stack a--- \n\n");
-	print_stack(a);
-	ft_printf("\n\n ---stack b--- \n\n");
-	print_stack(b);
-	push(&b, &a, "pb");
-	ft_printf("\n\n ---stack a--- \n\n");
-	print_stack(a);
-	ft_printf("\n\n ---stack b--- \n\n");
-	print_stack(b);
-	push(&b, &a, "pb");
-	ft_printf("\n\n ---stack a--- \n\n");
-	print_stack(a);
-	ft_printf("\n\n ---stack b--- \n\n");
-	print_stack(b);
-	push(&a, &b, "pa");
-	ft_printf("\n\n ---stack a--- \n\n");
-	print_stack(a);
-	ft_printf("\n\n ---stack b--- \n\n");
-	print_stack(b); */

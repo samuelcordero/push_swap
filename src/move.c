@@ -6,7 +6,7 @@
 /*   By: sacorder <sacorder@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 14:16:54 by sacorder          #+#    #+#             */
-/*   Updated: 2023/07/24 17:00:52 by sacorder         ###   ########.fr       */
+/*   Updated: 2023/07/25 10:58:41 by sacorder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	push(t_list **stack_to, t_list **stack_from, char *str)
 	first_right->next = *stack_to;
 	*stack_to = first_right;
 	*stack_from = second_right;
-	ft_putendl_fd(str, 1);
+	ft_putstr_fd(str, 1);
 }
 
 void	swap(t_list **stack, char *str)
@@ -38,7 +38,7 @@ void	swap(t_list **stack, char *str)
 		first_node->next = second_node->next;
 		second_node->next = first_node;
 	}
-	ft_putendl_fd(str, 1);
+	ft_putstr_fd(str, 1);
 }
 
 void	rotate(t_list **stack, char *str)
@@ -54,7 +54,7 @@ void	rotate(t_list **stack, char *str)
 		first_node->next = NULL;
 		ft_lstadd_back(stack, first_node);
 	}
-	ft_putendl_fd(str, 1);
+	ft_putstr_fd(str, 1);
 }
 
 void	rev_rotate(t_list **stack, char *str)
@@ -77,5 +77,5 @@ void	rev_rotate(t_list **stack, char *str)
 		last_node->next = first_node;
 		prev_last_node->next = NULL;
 	}
-	ft_putendl_fd(str, 1);
+	ft_putstr_fd(str, 1);
 }
