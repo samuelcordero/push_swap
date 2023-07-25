@@ -6,30 +6,11 @@
 /*   By: sacorder <sacorder@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 16:36:41 by sacorder          #+#    #+#             */
-/*   Updated: 2023/07/25 19:21:42 by sacorder         ###   ########.fr       */
+/*   Updated: 2023/07/25 20:34:00 by sacorder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-
-static int	is_sorted(t_list **stack)
-{
-	int		*content;
-	int		*prev_content;
-	t_list	*node;
-
-	node = *stack;
-	prev_content = node->content;
-	while (node)
-	{
-		content = node->content;
-		if (*content < *prev_content)
-			return (0);
-		prev_content = content;
-		node = node->next;
-	}
-	return (1);
-}
 
 static void	sort_three(t_list **stack_a, t_list **stack_b)
 {
@@ -61,10 +42,23 @@ static void	sort_three(t_list **stack_a, t_list **stack_b)
 
 static void	sort_ltf(t_list **stack_a, t_list **stack_b, int argc)
 {
+	if (*(int *) (ft_lstlast(*stack_a)->content) == 0)
+		rev_rotate(stack_a, "rra\n");
+	else
+	{
+		while (*(int *) ((*stack_a)->content) != 0)
+			rotate(stack_a, "ra\n");
+	}
 	push(stack_b, stack_a, "pb\n");
 	if (argc == 6)
+	{
+		while (*(int *) ((*stack_a)->content) != 1)
+			rotate(stack_a, "ra\n");
 		push(stack_b, stack_a, "pb\n");
+	}
 	sort_three(stack_a, stack_b);
+	while (*stack_b)
+		push(stack_a, stack_b, "pa\n");
 }
 
 static void	radix_sort(t_list **stack_a, t_list **stack_b)

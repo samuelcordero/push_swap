@@ -6,7 +6,7 @@
 /*   By: sacorder <sacorder@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 17:39:53 by sacorder          #+#    #+#             */
-/*   Updated: 2023/07/25 19:13:55 by sacorder         ###   ########.fr       */
+/*   Updated: 2023/07/25 20:01:47 by sacorder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,23 @@ void	check_args(char **argv, int argc)
 			}
 		}
 	}
+}
+
+int	is_sorted(t_list **stack)
+{
+	int		*content;
+	int		*prev_content;
+	t_list	*node;
+
+	node = *stack;
+	prev_content = node->content;
+	while (node)
+	{
+		content = node->content;
+		if (*content < *prev_content)
+			return (0);
+		prev_content = content;
+		node = node->next;
+	}
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: sacorder <sacorder@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 15:53:41 by sacorder          #+#    #+#             */
-/*   Updated: 2023/07/25 19:45:15 by sacorder         ###   ########.fr       */
+/*   Updated: 2023/07/25 21:12:55 by sacorder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,10 @@ static t_list	*parse_check_list(t_list *list)
 
 	res = reformat_list(list);
 	if (check_duplicates(res))
+	{
+		ft_putendl_fd("Error!", 2);
 		exit (1);
+	}
 	return (res);
 }
 
