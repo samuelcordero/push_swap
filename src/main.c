@@ -6,7 +6,7 @@
 /*   By: sacorder <sacorder@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 15:53:41 by sacorder          #+#    #+#             */
-/*   Updated: 2023/07/25 18:29:20 by sacorder         ###   ########.fr       */
+/*   Updated: 2023/07/25 19:45:15 by sacorder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ int	main(int argc, char **argv)
 	init_stack(a, argv);
 	a = parse_check_list(a);
 	sort(&a, argc);
+	ft_lstclear(&a, &ft_clrintlst_content);
 	return (0);
 }
