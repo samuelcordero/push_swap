@@ -14,7 +14,7 @@ CC = gcc
 LIB = libft/libft.a
 INCLIB = -L libft -lft
 NAME = push_swap
-FLAGS = -Wall -Wextra -Werror -fsanitize=address -g
+FLAGS = -Wall -Wextra -Werror -O3 -fsanitize=address -g
 INCLUDE = inc/push_swap.h
 SRC = src/main.c src/utils.c src/sort.c src/move.c src/check_utils.c
 OBJ = $(SRC:.c=.o)
@@ -40,6 +40,7 @@ fclean:
 	$(RM) $(OBJ)
 	$(RM) $(NAME)
 
-re: fclean all
+re:: fclean
+re:: all
 
 .PHONY: all clean fclean re
