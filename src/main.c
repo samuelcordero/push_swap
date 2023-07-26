@@ -6,7 +6,7 @@
 /*   By: sacorder <sacorder@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 15:53:41 by sacorder          #+#    #+#             */
-/*   Updated: 2023/07/25 21:12:55 by sacorder         ###   ########.fr       */
+/*   Updated: 2023/07/26 15:34:52 by sacorder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ static void	init_stack(t_list *stack, char **argv)
 	{
 		current->content = malloc(sizeof(int));
 		if (!current->content)
-			exit(-1);
+			print_error_exit();
 		content = (int *) current->content;
 		*content = ft_atoi(argv[i]);
 		if (argv[i + 1])
 		{
 			current->next = malloc(sizeof(t_list));
 			if (!current->next)
-				exit(-1);
+				print_error_exit();
 			current = current->next;
 		}
 		else
@@ -45,10 +45,7 @@ static t_list	*parse_check_list(t_list *list)
 
 	res = reformat_list(list);
 	if (check_duplicates(res))
-	{
-		ft_putendl_fd("Error!", 2);
-		exit (1);
-	}
+		print_error_exit();
 	return (res);
 }
 
@@ -56,10 +53,12 @@ int	main(int argc, char **argv)
 {
 	t_list	*a;
 
-	check_args(argv, argc);
+	if (argc < 2)
+		print_error_exit();
+	check_args(argv);
 	a = malloc(sizeof(t_list));
 	if (!a)
-		return (1);
+		print_error_exit();
 	init_stack(a, argv);
 	a = parse_check_list(a);
 	sort(&a, argc);

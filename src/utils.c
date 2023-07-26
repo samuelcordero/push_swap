@@ -6,7 +6,7 @@
 /*   By: sacorder <sacorder@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 00:10:10 by sacorder          #+#    #+#             */
-/*   Updated: 2023/07/12 17:14:20 by sacorder         ###   ########.fr       */
+/*   Updated: 2023/07/26 15:32:41 by sacorder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,13 @@ int	check_duplicates(t_list *list)
 	return (0);
 }
 
-void	print_stack(t_list *stack)
+void	print_error_exit(void)
+{
+	ft_putendl_fd("Error!", 2);
+	exit (1);
+}
+
+/* void	print_stack(t_list *stack)
 {
 	int		*content;
 	t_list	*current;
@@ -105,4 +111,4 @@ void	print_stack(t_list *stack)
 		ft_printf("Node content: %i\n\n", *content);
 		current = current->next;
 	}
-}
+} */

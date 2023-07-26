@@ -6,7 +6,7 @@
 /*   By: sacorder <sacorder@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 15:51:34 by sacorder          #+#    #+#             */
-/*   Updated: 2023/07/25 20:01:59 by sacorder         ###   ########.fr       */
+/*   Updated: 2023/07/26 15:39:17 by sacorder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,14 @@
 
 //check_utils.c
 
-void	check_args(char **argv, int argc);
+void	check_args(char **in);
 int		is_sorted(t_list **stack);
 
 //utils.c
 void	ft_clrintlst_content(void *content);
 t_list	*reformat_list(t_list *list);
 int		check_duplicates(t_list *list);
+void	print_error_exit();
 void	print_stack(t_list *stack);
 
 //sort.c

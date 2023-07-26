@@ -6,7 +6,7 @@
 /*   By: sacorder <sacorder@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 17:39:53 by sacorder          #+#    #+#             */
-/*   Updated: 2023/07/25 20:01:47 by sacorder         ###   ########.fr       */
+/*   Updated: 2023/07/26 15:39:12 by sacorder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,32 +44,31 @@ static int	str_int_limits(char *str)
 	return (0);
 }
 
-void	check_args(char **argv, int argc)
+void	check_args(char **in)
 {
 	int	i;
 	int	j;
+	int	digit_flag;
 
 	i = 0;
-	if (argc < 2)
-		exit (-1);
-	while (argv[++i])
+	while (in[++i])
 	{
-		if (!*argv[i] || str_int_limits(argv[i]))
-		{
-			ft_putendl_fd("Error!", 2);
-			exit (-1);
-		}
+		if (!*in[i] || str_int_limits(in[i]))
+			print_error_exit();
 		j = -1;
-		while (argv[i][++j])
+		digit_flag = 0;
+		while (in[i][++j])
 		{
-			if ((!ft_isdigit(argv[i][j]) && !ft_space_sign_zero(argv[i][j]))
-					|| (argv[i][j] == '+' && !ft_isdigit(argv[i][j + 1]))
-					|| (argv[i][j] == '-' && !ft_isdigit(argv[i][j + 1])))
-			{
-				ft_putendl_fd("Error!", 2);
-				exit (-1);
-			}
+			if ((!ft_isdigit(in[i][j]) && !ft_space_sign_zero(in[i][j])) ||
+					((in[i][j] == '+' || in[i][j] == '-') &&
+					(!ft_isdigit(in[i][j + 1]))) || (j > 0 && (in[i][j] == '+'
+					|| in[i][j] == '-') && in[i][j - 1] != ' '))
+				print_error_exit();
+			if (!digit_flag && ft_isdigit(in[i][j]))
+				digit_flag = 1;
 		}
+		if (!digit_flag)
+			print_error_exit();
 	}
 }
 

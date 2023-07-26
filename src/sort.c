@@ -6,7 +6,7 @@
 /*   By: sacorder <sacorder@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 16:36:41 by sacorder          #+#    #+#             */
-/*   Updated: 2023/07/25 20:34:00 by sacorder         ###   ########.fr       */
+/*   Updated: 2023/07/26 13:47:06 by sacorder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,17 @@ static void	sort_three(t_list **stack_a, t_list **stack_b)
 
 static void	sort_ltf(t_list **stack_a, t_list **stack_b, int argc)
 {
-	if (*(int *) (ft_lstlast(*stack_a)->content) == 0)
+	if (*(int *)(ft_lstlast(*stack_a)->content) == 0)
 		rev_rotate(stack_a, "rra\n");
 	else
 	{
-		while (*(int *) ((*stack_a)->content) != 0)
+		while (*(int *)((*stack_a)->content) != 0)
 			rotate(stack_a, "ra\n");
 	}
 	push(stack_b, stack_a, "pb\n");
 	if (argc == 6)
 	{
-		while (*(int *) ((*stack_a)->content) != 1)
+		while (*(int *)((*stack_a)->content) != 1)
 			rotate(stack_a, "ra\n");
 		push(stack_b, stack_a, "pb\n");
 	}
