@@ -6,21 +6,21 @@
 /*   By: sacorder <sacorder@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 17:39:53 by sacorder          #+#    #+#             */
-/*   Updated: 2023/07/26 16:18:33 by sacorder         ###   ########.fr       */
+/*   Updated: 2023/07/27 11:33:36 by sacorder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static int	ft_space_sign_zero(char c)
+static int	ft_isspace(char c)
 {
-	if (c == ' ' || c == '+' || c == '-' || c == '\v' || c == '0'
+	if (c == ' ' || c == '\v'
 		|| c == '\t' || c == '\r' || c == '\n' || c == '\f')
 		return (c);
 	return (0);
 }
 
-static int	str_int_limits(char *str)
+static void	str_int_limits(char *str)
 {
 	int	pos;
 	int	limit;
@@ -28,47 +28,55 @@ static int	str_int_limits(char *str)
 
 	pos = 0;
 	limit = 0;
-	while (ft_space_sign_zero(str[pos]))
+	while (ft_isspace(str[pos]))
 		++pos;
-	if (pos && (str[pos - 1] == '-'))
-		limit = 1;
+	if (str[pos] == '+')
+		++pos;
+	else if (str[pos] == '-')
+		limit = ++pos;
+	while (str[pos] == '0')
+		++pos;
 	length = ft_strlen(&str[pos]);
 	if (length == 10)
 	{
 		if ((limit && ft_strncmp(&str[pos], "2147483648", length) > 0)
 			|| (!limit && ft_strncmp(&str[pos], "2147483647", length) > 0))
-			return (1);
+			print_error_exit();
 	}
 	else if (length > 10)
-		return (1);
-	return (0);
+		print_error_exit();
+}
+
+static void	check_str_numeric(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (ft_isspace(str[i]))
+		++i;
+	if ((str[i] != '+' && str[i] != '-') && !ft_isdigit(str[i]))
+		print_error_exit();
+	else if (str[i] == '+' || str[i] == '-')
+		++i;
+	if (!ft_isdigit(str[i]))
+		print_error_exit();
+	while (ft_isdigit(str[i]))
+		++i;
+	if (str[i])
+		print_error_exit();
 }
 
 void	check_args(char **in)
 {
 	int	i;
-	int	j;
-	int	digit_flag;
 
 	i = 0;
 	while (in[++i])
 	{
-		if (!*in[i] || str_int_limits(in[i]))
+		if (!*in[i])
 			print_error_exit();
-		j = -1;
-		digit_flag = 0;
-		while (in[i][++j])
-		{
-			if ((!ft_isdigit(in[i][j]) && !ft_space_sign_zero(in[i][j])) ||
-					((in[i][j] == '+' || in[i][j] == '-') &&
-					(!ft_isdigit(in[i][j + 1]))) || (j > 0 && (in[i][j] == '+'
-					|| in[i][j] == '-') && in[i][j - 1] != ' '))
-				print_error_exit();
-			if (!digit_flag && ft_isdigit(in[i][j]))
-				digit_flag = 1;
-		}
-		if (!digit_flag)
-			print_error_exit();
+		str_int_limits(in[i]);
+		check_str_numeric(in[i]);
 	}
 }
 

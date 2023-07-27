@@ -6,7 +6,7 @@
 /*   By: sacorder <sacorder@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 15:53:41 by sacorder          #+#    #+#             */
-/*   Updated: 2023/07/26 15:34:52 by sacorder         ###   ########.fr       */
+/*   Updated: 2023/07/27 11:38:35 by sacorder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,3 +65,10 @@ int	main(int argc, char **argv)
 	ft_lstclear(&a, &ft_clrintlst_content);
 	return (0);
 }
+
+/*
+void	leaks(void)
+{
+	system("leaks -q push_swap");
+}
+*/
