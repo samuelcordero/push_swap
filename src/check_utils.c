@@ -6,7 +6,7 @@
 /*   By: sacorder <sacorder@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 17:39:53 by sacorder          #+#    #+#             */
-/*   Updated: 2023/07/27 11:33:36 by sacorder         ###   ########.fr       */
+/*   Updated: 2023/07/31 11:52:55 by sacorder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ static void	check_str_numeric(char *str)
 	if (!ft_isdigit(str[i]))
 		print_error_exit();
 	while (ft_isdigit(str[i]))
+		++i;
+	while (ft_isspace(str[i]))
 		++i;
 	if (str[i])
 		print_error_exit();
